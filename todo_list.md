@@ -5,3 +5,5 @@
 3. Validator package message can be override and I can type custom message accordingly.
 
 4. Test cases doesn't suffice and they can be various and test more scenarios.
+
+5. Records rows can provide a pagination feature for big data.
