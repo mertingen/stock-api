@@ -61,7 +61,7 @@ func main() {
 		port = "8080"
 	}
 	fmt.Printf("Listening on port %s...\n", port)
-	err = http.ListenAndServe(":"+os.Getenv("PORT"), nil)
+	err = http.ListenAndServe(":"+port, nil)
 	if err != nil {
 		log.Fatal(err)
 	}
