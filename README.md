@@ -58,7 +58,7 @@ Also, you'll see a **todo_list.md** file in the repository and it lists the matt
 ```json
 {
     "key": "test-key",
-    "value": "zxc-val"
+    "value": "test-val"
 }
 ```
 
