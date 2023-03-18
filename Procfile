@@ -1,1 +1,1 @@
-web: stock-api
+web: /bin/src
