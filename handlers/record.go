@@ -49,7 +49,7 @@ func (rec *Record) FetchAll(w http.ResponseWriter, r *http.Request) {
 				Msg:     "Error: Content type is not valid",
 				Records: []models.Record{},
 			}
-			w.WriteHeader(http.StatusOK)
+			w.WriteHeader(http.StatusUnsupportedMediaType)
 			json.NewEncoder(w).Encode(resp)
 			return
 		}
@@ -65,7 +65,7 @@ func (rec *Record) FetchAll(w http.ResponseWriter, r *http.Request) {
 				Msg:     fmt.Sprintf("Error: %s", err.Error()),
 				Records: []models.Record{},
 			}
-			w.WriteHeader(http.StatusOK)
+			w.WriteHeader(http.StatusUnprocessableEntity)
 			json.NewEncoder(w).Encode(resp)
 			return
 		}
@@ -79,7 +79,7 @@ func (rec *Record) FetchAll(w http.ResponseWriter, r *http.Request) {
 				Msg:     fmt.Sprintf("Error: %s", err.Error()),
 				Records: []models.Record{},
 			}
-			w.WriteHeader(http.StatusOK)
+			w.WriteHeader(http.StatusBadRequest)
 			json.NewEncoder(w).Encode(resp)
 			return
 		}
@@ -91,7 +91,7 @@ func (rec *Record) FetchAll(w http.ResponseWriter, r *http.Request) {
 				Msg:     "Error: Date formats are invalid",
 				Records: []models.Record{},
 			}
-			w.WriteHeader(http.StatusOK)
+			w.WriteHeader(http.StatusBadRequest)
 			json.NewEncoder(w).Encode(resp)
 			return
 		}
@@ -114,7 +114,7 @@ func (rec *Record) FetchAll(w http.ResponseWriter, r *http.Request) {
 				Msg:     fmt.Sprintf("Error: %s", err.Error()),
 				Records: []models.Record{},
 			}
-			w.WriteHeader(http.StatusOK)
+			w.WriteHeader(http.StatusNotFound)
 			json.NewEncoder(w).Encode(resp)
 			return
 		}
@@ -134,7 +134,7 @@ func (rec *Record) FetchAll(w http.ResponseWriter, r *http.Request) {
 			Msg:     "Error: HTTP verb is invalid",
 			Records: []models.Record{},
 		}
-		w.WriteHeader(http.StatusOK)
+		w.WriteHeader(http.StatusMethodNotAllowed)
 		json.NewEncoder(w).Encode(resp)
 		return
 	}

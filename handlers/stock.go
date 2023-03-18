@@ -30,7 +30,7 @@ func (s *Stock) Fetch(w http.ResponseWriter, r *http.Request) {
 		// Accept only 'application/json' conent-type
 		contentType := r.Header.Get("Content-Type")
 		if contentType != "application/json" {
-			w.WriteHeader(http.StatusOK)
+			w.WriteHeader(http.StatusUnsupportedMediaType)
 			json.NewEncoder(w).Encode(map[string]string{"error": "Content type is not valid"})
 			return
 		}
@@ -39,7 +39,7 @@ func (s *Stock) Fetch(w http.ResponseWriter, r *http.Request) {
 
 		err := json.Unmarshal(body, &stock)
 		if err != nil {
-			w.WriteHeader(http.StatusOK)
+			w.WriteHeader(http.StatusUnprocessableEntity)
 			json.NewEncoder(w).Encode(map[string]string{"error": "Request body is not valid"})
 			return
 		}
@@ -48,7 +48,7 @@ func (s *Stock) Fetch(w http.ResponseWriter, r *http.Request) {
 		validate := validator.New()
 		err = validate.Struct(stock)
 		if err != nil {
-			w.WriteHeader(http.StatusOK)
+			w.WriteHeader(http.StatusBadRequest)
 			json.NewEncoder(w).Encode(map[string]string{"error": "Request body is not valid"})
 			return
 		}
@@ -56,7 +56,7 @@ func (s *Stock) Fetch(w http.ResponseWriter, r *http.Request) {
 		stock, err := s.stockService.Save(stock)
 		if err != nil {
 			fmt.Println(err.Error())
-			w.WriteHeader(http.StatusOK)
+			w.WriteHeader(http.StatusInternalServerError)
 			json.NewEncoder(w).Encode(map[string]string{"error": "An error occurs while saving in the Redis"})
 			return
 		}
@@ -68,14 +68,14 @@ func (s *Stock) Fetch(w http.ResponseWriter, r *http.Request) {
 	case "GET":
 		key := r.URL.Query().Get("key")
 		if key == "" {
-			w.WriteHeader(http.StatusOK)
+			w.WriteHeader(http.StatusBadRequest)
 			json.NewEncoder(w).Encode(map[string]string{"error": "Key value is required"})
 			return
 		}
 
 		stock, err := s.stockService.Fetch(key)
 		if err != nil {
-			w.WriteHeader(http.StatusOK)
+			w.WriteHeader(http.StatusNotFound)
 			json.NewEncoder(w).Encode(map[string]string{"error": "Data is not found"})
 			return
 		}
@@ -84,7 +84,7 @@ func (s *Stock) Fetch(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(stock)
 		return
 	default:
-		w.WriteHeader(http.StatusOK)
+		w.WriteHeader(http.StatusMethodNotAllowed)
 		json.NewEncoder(w).Encode(map[string]string{"error": "HTTP verb is not valid"})
 		return
 	}
