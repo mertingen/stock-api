@@ -48,10 +48,10 @@ Also, you'll see a **todo_list.md** file in the repository and it lists the matt
 # 📁 Collection: Stocks 
 
 
-## End-point: /api/v1/records
+## End-point: /api/v1/stocks
 ### Method: POST
 >```
->localhost:8080/api/v1/records
+>localhost:8080/api/v1/stocks
 >```
 ### Body (**raw**)
 
@@ -62,10 +62,10 @@ Also, you'll see a **todo_list.md** file in the repository and it lists the matt
 }
 ```
 
-## End-point: /api/v1/records
+## End-point: /api/v1/stocks
 ### Method: GET
 >```
->localhost:8080/api/v1/records?key=test-key
+>localhost:8080/api/v1/stocks?key=test-key
 >```
 ### Query String
 
