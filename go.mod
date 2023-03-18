@@ -1,5 +1,5 @@
 // +heroku goVersion go1.19
-// +heroku install ./src/
+// +heroku install ./cmd/
 
 module github.com/mertingen/stock-api
 
