@@ -9,17 +9,17 @@ It has a RESTful API with two endpoints. One of them that fetches the data in th
 ### Warm-up
 You'll see **.env.sample** in the root directory, you should fulfill these variable to initialize the app.
 
-DB_USER=
-DB_PASS=
-DB_HOST=
-DB_NAME=
+\- DB_USER=
+\- DB_PASS=
+\- DB_HOST=
+\- DB_NAME=
 
-APP_PORT=
+\- APP_PORT=
 
-REDIS_USER=
-REDIS_PASS=
-REDIS_HOST=
-REDIS_PORT=
+\- REDIS_USER=
+\- REDIS_PASS=
+\- REDIS_HOST=
+\- REDIS_PORT=
 
 ### Tests
 If'd rather run tests file, you'll enter in "tests" directory and run **go test**
