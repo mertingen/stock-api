@@ -9,3 +9,5 @@
 5. Records rows can provide a pagination feature for big data.
 
 6. Add response samples, and error situations/cases in the README.md file for documentation.
+
+7. Graceful shutdown might be pretty good for the web server in Go.
