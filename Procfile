@@ -1,1 +1,1 @@
-web: stock-api-v1
+web: main
