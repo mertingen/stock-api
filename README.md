@@ -22,7 +22,7 @@ You'll see **.env.sample** in the root directory, you should fulfill these varia
 - REDIS_PORT=
 
 ### Tests
-If'd rather run tests file, you'll enter in "tests" directory and run **go test**
+If'd rather run tests file, firstly you need to fufill **.env.test** file while checking **.env.sample** file and you'll enter in "tests" directory then run **go test**
 
 ### TO DO
 Also, you'll see a **todo_list.md** file in the repository and it lists the matters that the app should have those feature in the future. Because those matters will make the app better.
