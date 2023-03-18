@@ -14,7 +14,7 @@ You'll see **.env.sample** in the root directory, you should fulfill these varia
 - DB_HOST=
 - DB_NAME=
 
-- APP_PORT=
+- PORT=
 
 - REDIS_USER=
 - REDIS_PASS=

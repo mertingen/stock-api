@@ -56,7 +56,7 @@ func main() {
 	http.HandleFunc("/api/v1/stocks", stockHandler.Fetch)
 
 	// Start the HTTP server
-	port := os.Getenv("APP_PORT")
+	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080"
 	}
