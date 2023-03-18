@@ -15,7 +15,7 @@ func main() {
 	// Load the .env file in the root directory
 	err := godotenv.Load("../.env")
 	if err != nil {
-		log.Fatal("Error loading .env file!")
+		log.Println("Error loading .env file!")
 	}
 
 	// Set the env variables regarding the DB
@@ -61,7 +61,7 @@ func main() {
 		port = "8080"
 	}
 	fmt.Printf("Listening on port %s...\n", port)
-	err = http.ListenAndServe(":"+port, nil)
+	err = http.ListenAndServe(":"+os.Getenv("PORT"), nil)
 	if err != nil {
 		log.Fatal(err)
 	}
