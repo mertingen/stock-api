@@ -1,3 +1,4 @@
+// +heroku goVersion go1.19
 module github.com/mertingen/stock-api
 
 go 1.19
