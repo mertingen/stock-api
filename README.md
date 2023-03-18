@@ -29,6 +29,21 @@ Also, you'll see a **todo_list.md** file in the repository and it lists the matt
 
 # 📁 Collection: Records 
 
+The request payload of the first endpoint will include a JSON with 4 fields.
+● “startDate” and “endDate” fields will contain the date in a “YYYY-MM-DD” format.
+You should filter the data using “createdAt”
+● “minCount” and “maxCount” are for filtering the data. Sum of the “count” array in
+the documents should be between “minCount” and “maxCount”.
+
+Response payload should have 3 main fields.
+● “code” is for status of the request. 0 means success. Other values may be used
+for errors that you define.
+● “msg” is for description of the code. You can set it to “success” for successful
+requests. For unsuccessful requests, you should use explanatory messages.
+● “records” will include all the filtered items according to the request. This array
+should include items of “key”, “createdAt” and “totalCount” which is the sum the
+“counts” array in the document.
+
 ## End-point: /api/v1/records
 ### Method: POST
 >```
@@ -47,6 +62,15 @@ Also, you'll see a **todo_list.md** file in the repository and it lists the matt
 
 # 📁 Collection: Stocks 
 
+The request payload of POST endpoint will include a JSON with 2 fields.
+
+● “key” fields holds the key (any key in string type)
+● “value” fields holds the value (any value in string type)
+
+Response payload should return echo of the request or error (if any).
+
+The request payload of GET endpoint will include 1 query parameter. That is “key”
+param holds the key (any key in string type)
 
 ## End-point: /api/v1/stocks
 ### Method: POST
