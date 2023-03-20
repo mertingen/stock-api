@@ -7,7 +7,7 @@ It has a RESTful API with two endpoints. One of them that fetches the data in th
 - Redis
 
 ### Warm-up
-You'll see **.env.sample** in the root directory, you should fulfill these variable to initialize the app.
+You'll see **.env.sample** in the root directory, you should create **.env** file next to it and fulfill these variable to initialize the app.
 
 - DB_USER=
 - DB_PASS=
